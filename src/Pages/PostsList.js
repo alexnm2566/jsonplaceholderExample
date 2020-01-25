@@ -59,6 +59,12 @@ const PostsList = ({ postsData: { posts, loading, error }, loadPosts }) => {
           </Link>
         );
       })}
+      <Paginator
+        currentPage={currentPage}
+        totalItems={posts.length}
+        onPageChange={pageAndPostsChange}
+        itemsPerPage={postsPerPage}
+      />
     </Fragment>
   );
 };
