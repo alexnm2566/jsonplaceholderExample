@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Post from "../components/Post";
 import { connect } from "react-redux";
-import { loadPosts } from "../actions/post";
 import { Spin } from "antd";
 import ErrorMessage from "../components/ErrorMessage";
 import Paginator from "../components/Paginator";
