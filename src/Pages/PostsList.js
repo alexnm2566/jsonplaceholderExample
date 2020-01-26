@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Post from "../components/Post";
 import { connect } from "react-redux";
-import { loadPosts } from "../actions/post";
 import { Spin } from "antd";
 import ErrorMessage from "../components/ErrorMessage";
 import Paginator from "../components/Paginator";
@@ -15,14 +14,11 @@ const PostsList = ({ postsData: { posts, loading, error } }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(postsPerPage);
 
-  const pageAndPostsChange = useCallback(
-    newPage => {
-      setCurrentPage(newPage);
-      setStartIndex(newPage * postsPerPage - postsPerPage);
-      setEndIndex(newPage * postsPerPage);
-    },
-    [currentPage, startIndex, endIndex]
-  );
+  const pageAndPostsChange = useCallback(newPage => {
+    setCurrentPage(newPage);
+    setStartIndex(newPage * postsPerPage - postsPerPage);
+    setEndIndex(newPage * postsPerPage);
+  }, []);
 
   if (loading) {
     return (
