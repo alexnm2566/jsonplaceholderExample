@@ -10,7 +10,7 @@ import Paginator from "../components/Paginator";
 
 const postsPerPage = 10;
 
-const PostsList = ({ postsData: { posts, loading, error }, loadPosts }) => {
+const PostsList = ({ postsData: { posts, loading, error } }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(postsPerPage);
@@ -70,7 +70,6 @@ const PostsList = ({ postsData: { posts, loading, error }, loadPosts }) => {
 };
 
 PostsList.propTypes = {
-  loadPosts: PropTypes.func.isRequired,
   postsData: PropTypes.object
 };
 
@@ -78,4 +77,4 @@ const mapState = state => ({
   postsData: state.post
 });
 
-export default connect(mapState, { loadPosts })(PostsList);
+export default connect(mapState)(PostsList);
