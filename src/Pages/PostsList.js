@@ -15,14 +15,11 @@ const PostsList = ({ postsData: { posts, loading, error } }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(postsPerPage);
 
-  const pageAndPostsChange = useCallback(
-    newPage => {
-      setCurrentPage(newPage);
-      setStartIndex(newPage * postsPerPage - postsPerPage);
-      setEndIndex(newPage * postsPerPage);
-    },
-    [currentPage, startIndex, endIndex]
-  );
+  const pageAndPostsChange = useCallback(newPage => {
+    setCurrentPage(newPage);
+    setStartIndex(newPage * postsPerPage - postsPerPage);
+    setEndIndex(newPage * postsPerPage);
+  }, []);
 
   if (loading) {
     return (
